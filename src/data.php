@@ -3,7 +3,7 @@
 $con = mysqli_connect("localhost","peter","abc123");
 if (!$con)
 {
-    die('Could not connect: ' . mysql_error());
+    die('Could not connect: ' . mysqli_error());
 }
 // 创建数据库
 if (mysqli_query("CREATE DATABASE my_db",$con))
@@ -12,7 +12,7 @@ if (mysqli_query("CREATE DATABASE my_db",$con))
 }
 else
 {
-    echo "Error creating database: " . mysql_error();
+    echo "Error creating database: " . mysqli_error();
 }
 
 // 在数据库 my_db 中创建Persons数据表

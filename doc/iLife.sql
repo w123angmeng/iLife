@@ -41,7 +41,7 @@ ENGINE=MyISAM AUTO_INCREMENT=2
 DEFAULT CHARSET=utf8;
 
 --
--- ×ª´æ±íÖÐµÄÊý¾Ý `food_info_users`
+-- ×ªï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ `food_info_users`
 --
 
 INSERT INTO `food_info_users` (`uid`, `username`, `password`, `email`, `role`, `salt`, `status`, `joindate`, `joinip`, `lastvisit`, `lastip`, `remark`, `starttime`, `endtime`) VALUES
