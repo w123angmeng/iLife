@@ -1,52 +1,27 @@
- `food_info_users`
---
+﻿
+
+SET FOREIGN_KEY_CHECKS=0;
 
 
-DROP TABLE IF EXISTS `food_info_users`;
+#####################Create iLife database######################################################################
+DROP  DATABASE IF EXISTS  iLife;
+CREATE DATABASE iLife DEFAULT CHARSET utf8;
+USE  iLife;
+#####################Create iLife database end##################################################################
 
-CREATE TABLE IF NOT EXISTS `food_info_users` 
-(
-  `uid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
- 
- `username` varchar(30) NOT NULL,
- 
- `password` varchar(200) NOT NULL,
-  
-`email` varchar(50) NOT NULL DEFAULT '',
- 
- `role` varchar(30) NOT NULL DEFAULT 'admin',
- 
- `salt` varchar(10) NOT NULL,
-  
-`status` tinyint(4) NOT NULL,
- 
- `joindate` int(10) UNSIGNED NOT NULL,
- 
- `joinip` varchar(15) NOT NULL,
-  
-`lastvisit` int(10) UNSIGNED NOT NULL,
- 
- `lastip` varchar(15) NOT NULL,
- 
- `remark` varchar(500) NOT NULL,
-  `starttime` int(10) UNSIGNED NOT NULL,
-  `endtime` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`uid`),
-  
-UNIQUE KEY `username` (`username`),
-  
-KEY `index_role` (`role`)
-) 
-ENGINE=MyISAM AUTO_INCREMENT=2 
-DEFAULT CHARSET=utf8;
-
---
--- ת����е����� `food_info_users`
---
-
-INSERT INTO `food_info_users` (`uid`, `username`, `password`, `email`, `role`, `salt`, `status`, `joindate`, `joinip`, `lastvisit`, `lastip`, `remark`, `starttime`, `endtime`) VALUES
-(1, 'admin', '3c9f403476e9cea86f1edb9eff01f666', '', 'admin', '3754', 0, 0, '', 0, '', '', 0, 0);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- ----------------------------
+-- Table structure for i_goods_info
+-- ----------------------------
+DROP TABLE IF EXISTS `i_goods_info`;
+CREATE TABLE `i_goods_info` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `t_id` int(10) unsigned NOT NULL COMMENT '真实商品id',
+  `name` varchar(20) NOT NULL COMMENT '商品名称',
+  `unit` varchar(5) NOT NULL COMMENT '商品单位',
+  `price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `sell_num` int(10) unsigned DEFAULT 0,
+  `image` varchar(50) DEFAULT '',
+  `oper_time` datetime NOT NULL
+  PRIMARY KEY (`id`),
+  KEY `idx_name` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
