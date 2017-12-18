@@ -1,61 +1,40 @@
 <?php
-//?????????
+//设置编码
+@header('Content-type: text/html;charset=UTF-8');
+//设置时区
+date_default_timezone_set('PRC');
+//TODO删除今天的商品数据
+//错误Log日志
 $mydb = new mysqli("localhost","root","123456","ilife");
-var_dump($mydb);
+$mydb->set_charset("utf8");
 if (!$mydb)
 {
     die('Could not connect: ' . mysqli_error());
 }
-// ?????????
-//if (mysqli_query("CREATE DATABASE ilife",$con))
-//{
-    //echo "Database created";
-//}
-//else
-//{
-    //echo "Error creating database: " . mysqli_error();
-//}
-
-// ??????? my_db ??????Persons?????
-//mysqli_select_db("ilife", $con);
-//$sql = "CREATE TABLE Persons
-//(
-//FirstName varchar(15),
-//LastName varchar(15),
-//Age int
-//)";
-//mysqli_query($sql,$con);
-//???????Persons?????????????
-//mysqli_query("INSERT INTO i_goods_info (t_id, name, unit,image,sell_num,price,oper_time)
-//VALUES ('Peter', 'Griffin', '35')");
-
-//mysqli_query("INSERT INTO Persons (FirstName, LastName, Age)
-//VALUES ('Glenn', 'Quagmire', '33')");
-//???????
-
-$data = '{"806":{"id":"806","u":"??","s":"28","c":["46"],"p":"5.00","n":"?????????????","x":"69","i":"/attachment/alycms/www/2017/9/5fMJsflVGuEyhIkU1.jpg"},"861":{"id":"861","u":"??","s":"9","c":["46"],"p":"4.00","n":"?????????","x":"124","i":"/attachment/alycms/www/2017/8/mU3UQGs8NMOGcgKs1.jpg"},"781":{"id":"781","u":"??","s":"41","c":["46"],"p":"4.50","n":"??????????","x":"44","i":"/attachment/alycms/www/2017/8/1FdatF1H5h2zpEOp1.jpg"},"989":{"id":"989","u":"??","s":"79","c":["46"],"p":"5.00","n":"?????????","x":"252","i":"/attachment/alycms/www/2017/7/0IQ6Aj7jua07BZQp1.jpg"},"1001":{"id":"1001","u":"??","s":"226","c":["46"],"p":"7.50","n":"???????","x":"264","i":"/attachment/alycms/www/2017/7/7ktQ1L5mtaBJND891.jpg"},"6321":{"id":"6321","u":"??","s":"216","c":["2"],"p":"5.00","n":"????????","x":"47","i":"/attachment/alycms/www/2017/7/xy8xu6qmg70wUEwL1.jpg"},"847":{"id":"847","u":"??","s":"148","c":["46"],"p":"7.50","n":"?????","x":"110","i":"/attachment/alycms/www/2017/7/k37x1pZ98noyLudx1.jpg"},"12837":{"id":"12837","u":"??","s":"4","c":["46"],"p":"7.50","n":"??T????","x":"333","i":"/attachment/alycms/www/2017/12/uwNYmcsR6VmdQHWL1.jpg"},"983":{"id":"983","u":"??","s":"76","c":["46"],"p":"7.50","n":"?????","x":"246","i":"/attachment/alycms/www/2017/7/rzjvkY2LNAw3Gkrh1.jpg"},"747":{"id":"747","u":"??","s":"1521","c":["46"],"p":"1.50","n":"??????????","x":"2","i":"/attachment/alycms/www/2017/7/pqNwaJSGPggik26F1-1.jpg"},"7971":{"id":"7971","u":"??","s":"25","c":["46"],"p":"7.50","n":"??????","x":"444","i":"/attachment/alycms/www/2017/10/AKjSTN5lDuJZzRGt1.jpg"},"884":{"id":"884","u":"??","s":"258","c":["46"],"p":"4.50","n":"?????????","x":"147","i":"/attachment/alycms/www/2017/9/9GsoPBeOwhGoTv6x1.jpg"},"880":{"id":"880","u":"??","s":"89","c":["46"],"p":"5.00","n":"?????????","x":"143","i":"/attachment/alycms/www/2017/7/6zpDp3dZmklvjaTC1.jpg"},"959":{"id":"959","u":"??","s":"57","c":["46"],"p":"4.50","n":"???????","x":"222","i":"/attachment/alycms/www/2017/9/ZFaVa0cbxfbEYhKY1.jpg"},"812":{"id":"812","u":"??","s":"4","c":["46"],"p":"6.50","n":"????????","x":"75","i":"/attachment/alycms/www/2017/12/IkgP8YbK9JBub1VQ1.jpg"},"934":{"id":"934","u":"??","s":"94","c":["46"],"p":"6.50","n":"????????","x":"197","i":"/attachment/alycms/www/2017/9/bcKEVkoytl2kruui1.jpg"},"935":{"id":"935","u":"??","s":"62","c":["46"],"p":"7.50","n":"??????","x":"198","i":"/attachment/alycms/www/2017/8/k5ctpRimNvjk9EW01.jpg"},"917":{"id":"917","u":"??","s":"328","c":["46"],"p":"5.50","n":"??????????","x":"180","i":"/attachment/alycms/www/2017/7/yKs4A0qg57Npt3AN1.jpg"},"938":{"id":"938","u":"??","s":"221","c":["46"],"p":"4.50","n":"???????","x":"201","i":"/attachment/alycms/www/2017/7/ch1pu3L6XGQTktGZ1.jpg"},"899":{"id":"899","u":"??","s":"12","c":["46"],"p":"6.50","n":"???????","x":"162","i":"/attachment/alycms/www/2017/7/DWi2FNBrFJ9prLrQ1.jpg"},"1022":{"id":"1022","u":"??","s":"597","c":["3"],"p":"0.70","n":"????1????","x":"2","i":"/attachment/alycms/www/2017/7/pUVAt8196NXMDuWQ1.jpg"},"879":{"id":"879","u":"??","s":"22","c":["46"],"p":"5.00","n":"????","x":"142","i":"/attachment/alycms/www/2017/9/EDMFfrEqDFg08wyD1.jpg"},"738":{"id":"738","u":"??","s":"2636","c":["46"],"p":"0.60","n":"???","x":"1","i":"/attachment/alycms/www/2017/7/Ro1fDV7h4W7WPbEX1-1.jpg"},"9465":{"id":"9465","u":"??","s":"166","c":["3"],"p":"0.70","n":"?????????","x":"2","i":"/attachment/alycms/www/2017/10/og75vgIO4WdkgEwT1.jpg"},"9466":{"id":"9466","u":"??","s":"158","c":["3"],"p":"0.70","n":"????????","x":"2","i":"/attachment/alycms/www/2017/10/X8w5YCnxAVKj4hS71.jpg"}}';
+$data = '{"747":{"id":"747","u":"碗","s":"1555","c":["46"],"p":"1.50","n":"米饭（加盒）","i":"\/attachment\/alycms\/www\/2017\/7\/pqNwaJSGPggik26F1-1.jpg","x":"2"},"880":{"id":"880","u":"份","s":"98","c":["46"],"p":"5.00","n":"菠菜炒鸡蛋","i":"\/attachment\/alycms\/www\/2017\/7\/6zpDp3dZmklvjaTC1.jpg","x":"143"},"959":{"id":"959","u":"份","s":"60","c":["46"],"p":"4.50","n":"油菜炒木耳","i":"\/attachment\/alycms\/www\/2017\/9\/ZFaVa0cbxfbEYhKY1.jpg","x":"222"},"885":{"id":"885","u":"份","c":["46"],"p":"4.50","n":"炸茄片","i":"\/attachment\/alycms\/www\/2017\/12\/46S76tRiT4C1GEGb1.jpg","x":"148"},"884":{"id":"884","u":"份","s":"278","c":["46"],"p":"4.50","n":"白菜炖豆腐","i":"\/attachment\/alycms\/www\/2017\/9\/9GsoPBeOwhGoTv6x1.jpg","x":"147"},"738":{"id":"738","u":"个","s":"2686","c":["46"],"p":"0.60","n":"馒头","i":"\/attachment\/alycms\/www\/2017\/7\/Ro1fDV7h4W7WPbEX1-1.jpg","x":"1"},"941":{"id":"941","u":"份","c":["46"],"p":"5.00","n":"炸杏鲍菇","i":"\/attachment\/alycms\/www\/2017\/12\/j6qabbzoQKV4wcg01.jpg","x":"204"},"1001":{"id":"1001","u":"份","s":"234","c":["46"],"p":"7.50","n":"鱼香肉丝","i":"\/attachment\/alycms\/www\/2017\/7\/7ktQ1L5mtaBJND891.jpg","x":"264"},"7076201":{"id":"7076201","u":"份","c":["46"],"p":"4.50","n":"烧冬瓜","i":"\/attachment\/alycms\/www\/2017\/12\/9ps5y8D4oR31ojtu1.jpg","x":"111"},"806":{"id":"806","u":"份","s":"45","c":["46"],"p":"5.00","n":"东北酸菜炖粉条","i":"\/attachment\/alycms\/www\/2017\/12\/mM6rnoGYwFkeJLvX1.jpg","x":"69"},"7076200":{"id":"7076200","u":"份","c":["46"],"p":"7.50","n":"椒香鸡柳","x":"111"},"761":{"id":"761","u":"份","s":"32","c":["46"],"p":"6.50","n":"烧溜鱼条","i":"\/attachment\/alycms\/www\/2017\/7\/st7urclt2HKhGhJM1.jpg","x":"24"},"942":{"id":"942","u":"份","s":"294","c":["46"],"p":"4.50","n":"炒花菜","i":"\/attachment\/alycms\/www\/2017\/7\/jhoTlWCIIYa8ircM1.jpg","x":"205"},"1005":{"id":"1005","u":"份","s":"15","c":["46"],"p":"7.50","n":"土豆红烧肉","i":"\/attachment\/alycms\/www\/2017\/8\/6kQWRY7XetKyA8DY1.jpg","x":"268"},"764":{"id":"764","u":"份","p":"6.50","n":"麻辣鸭块盖浇饭","i":"\/attachment\/alycms\/www\/2017\/7\/GK44D0cjuLEC7TJo1.jpg","x":"27"},"1007":{"id":"1007","u":"份","s":"37","c":["46"],"p":"4.50","n":"芹菜炒肉","i":"\/attachment\/alycms\/www\/2017\/7\/HZMlGhXTSeGdXTVf1.jpg","x":"270"},"938":{"id":"938","u":"份","s":"228","c":["46"],"p":"4.50","n":"干煸头菜","i":"\/attachment\/alycms\/www\/2017\/12\/Slu4P0LROINLwCaA1.jpg","x":"201"},"934":{"id":"934","u":"份","s":"97","c":["46"],"p":"6.50","n":"干煸火腿肠","i":"\/attachment\/alycms\/www\/2017\/12\/BdYOfLQQFAChP2MI1.jpg","x":"197"},"7076199":{"id":"7076199","u":"份","c":["46"],"p":"7.50","n":"炸鲳鱼","i":"\/attachment\/alycms\/www\/2017\/12\/J8mZs5FxAAG19Lic1.jpg","x":"111"},"1065":{"id":"1065","u":"份","s":"106","c":["46"],"p":"4.50","n":"鱼香藕片","i":"\/attachment\/alycms\/www\/2017\/7\/oI6Zhwb63KPh1fLL1.jpeg","x":"9"},"854":{"id":"854","u":"份","s":"118","c":["46"],"p":"5.00","n":"剁椒千页豆腐","i":"\/attachment\/alycms\/www\/2017\/7\/4nQRLYF2SPamiP5e1.jpg","x":"117"},"989":{"id":"989","u":"份","s":"80","c":["46"],"p":"5.00","n":"辣炒豆腐皮","i":"\/attachment\/alycms\/www\/2017\/7\/0IQ6Aj7jua07BZQp1.jpg","x":"252"},"917":{"id":"917","u":"份","s":"337","c":["46"],"p":"5.50","n":"西红柿炒蛋","i":"\/attachment\/alycms\/www\/2017\/7\/yKs4A0qg57Npt3AN1.jpg","x":"180"},"863":{"id":"863","u":"份","s":"52","c":["46"],"p":"6.50","n":"宫爆鸡丁","i":"\/attachment\/alycms\/www\/2017\/7\/nLhv7HvSeV9QPN201.jpg","x":"126"},"7971":{"id":"7971","u":"份","s":"27","c":["46"],"p":"7.50","n":"黑椒牛肉","i":"\/attachment\/alycms\/www\/2017\/10\/AKjSTN5lDuJZzRGt1.jpg","x":"444"},"783":{"id":"783","u":"份","s":"250","c":["46"],"p":"4.50","n":"酸辣土豆丝","i":"\/attachment\/alycms\/www\/2017\/7\/ZiclGBuhSN3E2CMX1.jpg","x":"46"},"1856":{"id":"1856","u":"份","s":"31","c":["46"],"p":"7.50","n":"辣炒培根片","i":"\/attachment\/alycms\/www\/2017\/8\/P54g7ZMFLZEdkxhW1.jpg","x":"222"},"781":{"id":"781","u":"份","s":"48","c":["46"],"p":"4.50","n":"香辣土豆丁","i":"\/attachment\/alycms\/www\/2017\/8\/1FdatF1H5h2zpEOp1.jpg","x":"44"},"960":{"id":"960","u":"份","s":"12","c":["46"],"p":"6.50","n":"辣炒黑蛤","i":"\/attachment\/alycms\/www\/2017\/7\/wW8fLmPCxkRM9aBB1.jpg","x":"223"},"847":{"id":"847","u":"份","s":"150","c":["46"],"p":"7.50","n":"盐酥鸡","i":"\/attachment\/alycms\/www\/2017\/7\/k37x1pZ98noyLudx1.jpg","x":"110"}}';
 $dataJson = json_decode($data);
-$result = false;
-$oper_time = date('Y-m-d');
+$result = true;
+$oper_time = date('Y-m-d H:i:s');
 foreach ($dataJson as $item)
 {
+	$item->s = $item->s ? $item->s: $item->x;
     $sql = "INSERT INTO i_goods_info (t_id, name, unit,image,price,sell_num,oper_time)
     VALUES ('$item->id','$item->n','$item->u','$item->i','$item->p','$item->s','$oper_time')";
     $item_result = $mydb->query($sql);
-	var_dump($item_result);
     if($item_result == false)
     {
+		echo $mydb->error;
         $result = false;
         return;
     }
 }
 if($result)
 {
-    echo "data input succeeed!";
+    echo "1:data input succeeed!";
 }
 else
 {
-    echo "data input fail!";
+    echo "0:data input fail!";
 }
-mysqli_close($con);
+$mydb->close();
 ?>
