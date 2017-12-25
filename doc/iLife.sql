@@ -39,6 +39,8 @@ CREATE TABLE `i_goods_cart_info` (
   `num` int(10) unsigned DEFAULT '0',
   `total_price` decimal(10,2) NOT NULL DEFAULT '0.00',
   `image` varchar(100) DEFAULT '',
+  `uid` int(10) unsigned NOT NULL COMMENT '操作人id',
+  `username` varchar(30) NOT NULL COMMENT '操作人',
   `oper_time` datetime NOT NULL
   PRIMARY KEY (`id`),
   KEY `idx_name` (`name`)
