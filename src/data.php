@@ -5,7 +5,7 @@
 date_default_timezone_set('PRC');
 //TODO删除今天的商品数据
 //错误Log日志
-$mydb = new mysqli("localhost","root","123456","ilife");
+$mydb = new mysqli("localhost","root","","ilife");
 $mydb->set_charset("utf8");
 if (!$mydb)
 {
@@ -28,7 +28,13 @@ if(!empty($result_g))
 	$result_d = $mydb->query('DELETE from i_goods_info where date_format(oper_time,"%Y-%m-%d")= '.date('Y-m-d'));
 	if($result_d)
 	{
-		echo "old data delete succeed";
+		echo "old data delete succeed!";
+	}
+	else
+	{
+		echo $mydb->error;
+		echo "old data delete failed!";
+		return;
 	}
 }
 foreach ($dataJson as $item)
