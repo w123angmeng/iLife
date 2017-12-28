@@ -64,7 +64,7 @@ CREATE TABLE `i_order_info` (
 DROP TABLE IF EXISTS `i_order_goods_info`;
 CREATE TABLE `i_order_goods_info` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `order_id` int(10) unsigned NOT NULL COMMENT '订单id' PRIMARY KEY,
+  `order_id` int(10) unsigned NOT NULL COMMENT '订单id',
   `order_no` varchar(50) NOT NULL COMMENT '订单号',
   `goods_id` int(10) unsigned NOT NULL COMMENT '商品id',
   `goods_t_id` int(10) unsigned NOT NULL COMMENT '商品t_id',
