@@ -45,4 +45,4 @@ INSERT INTO `food_info_article` VALUES ('4', '食品专业知识-第一篇文章
 INSERT INTO `food_info_article` VALUES ('5', '食品专业知识-第一篇文章', '这是文章内容', '5', '', '', 'admin', '', '', '', '', '', '', '', '', '', '1');
 
 #######food_info_users################
-INSERT INTO `food_info_users` VALUES ('1', 'admin', '', '', 'admin', '', '', '', '', '', '', '', '', '')
+INSERT INTO `food_info_users` VALUES ('1', 'admin', '', '', '', 'admin', '', '', '', '', '', '', '', '', '')
