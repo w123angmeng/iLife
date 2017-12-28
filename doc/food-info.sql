@@ -69,6 +69,7 @@ CREATE TABLE `food_info_users` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `password` varchar(200) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL DEFAULT '',
   `role` varchar(30) NOT NULL DEFAULT 'admin',
   `salt` varchar(10) NOT NULL,
