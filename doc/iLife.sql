@@ -22,8 +22,7 @@ CREATE TABLE `i_goods_info` (
   `sell_num` int(10) unsigned DEFAULT '0',
   `image` varchar(100) DEFAULT '',
   `oper_time` datetime NOT NULL
-  PRIMARY KEY (`id`),
-  KEY `idx_name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -42,8 +41,7 @@ CREATE TABLE `i_goods_cart_info` (
   `uid` int(10) unsigned NOT NULL COMMENT '操作人id',
   `username` varchar(30) NOT NULL COMMENT '操作人',
   `oper_time` datetime NOT NULL
-  PRIMARY KEY (`id`),
-  KEY `idx_name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -60,8 +58,7 @@ CREATE TABLE `i_order_info` (
   `username` varchar(30) NOT NULL COMMENT '下单人',
   `is_valid` tinyint(1) unsigned NOT NULL COMMENT '是否有效',
   `cancle_flag` tinyint(1) unsigned NOT NULL COMMENT '是否取消',
-  PRIMARY KEY (`id`),
-  KEY `idx_name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -84,6 +81,5 @@ CREATE TABLE `i_order_goods_info` (
   `username` varchar(30) NOT NULL COMMENT '下单人',
   `is_valid` tinyint(1) unsigned NOT NULL COMMENT '是否有效',
   `cancle_flag` tinyint(1) unsigned NOT NULL COMMENT '是否取消',
-  PRIMARY KEY (`id`),
-  KEY `idx_name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
