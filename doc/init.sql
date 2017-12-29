@@ -38,11 +38,11 @@ INSERT INTO `food_info_article_category` VALUES ('4', '食品专业知识');
 INSERT INTO `food_info_article_category` VALUES ('5', '食疗养生');
 
 #######food_info_article################
-INSERT INTO `food_info_article` VALUES ('1', '国内文章-第一篇文章', '这是文章内容', '1', '', '', 'admin', '', '', '', '', '', '', '', '', '', '1');
-INSERT INTO `food_info_article` VALUES ('2', '国外文章-第一篇文章', '这是文章内容', '2', '', '', 'admin', '', '', '', '', '', '', '', '', '', '1');
-INSERT INTO `food_info_article` VALUES ('3', '热点资讯-第一篇文章', '这是文章内容', '3', '', '', 'admin', '', '', '', '', '', '', '', '', '', '1');
-INSERT INTO `food_info_article` VALUES ('4', '食品专业知识-第一篇文章', '这是文章内容', '4', '', '', 'admin', '', '', '', '', '', '', '', '', '', '1');
-INSERT INTO `food_info_article` VALUES ('5', '食品专业知识-第一篇文章', '这是文章内容', '5', '', '', 'admin', '', '', '', '', '', '', '', '', '', '1');
+INSERT INTO `food_info_article` VALUES ('1', '国内文章-第一篇文章', '这是文章内容', '1', '', '', 'admin', '0', '0', '0', '0', '', '0', '0', '0', '', '1');
+INSERT INTO `food_info_article` VALUES ('2', '国外文章-第一篇文章', '这是文章内容', '2', '', '', 'admin', '0', '0', '0', '0', '', '0', '0', '0', '', '1');
+INSERT INTO `food_info_article` VALUES ('3', '热点资讯-第一篇文章', '这是文章内容', '3', '', '', 'admin', '0', '0', '0', '0', '', '0', '0', '0', '', '1');
+INSERT INTO `food_info_article` VALUES ('4', '食品专业知识-第一篇文章', '这是文章内容', '4', '', '', 'admin', '0', '0', '0', '0', '', '0', '0', '0', '', '1');
+INSERT INTO `food_info_article` VALUES ('5', '食品专业知识-第一篇文章', '这是文章内容', '5', '', '', 'admin', '0', '0', '0', '0', '', '0', '0', '0', '', '1');
 
 #######food_info_users################
 INSERT INTO `food_info_users` VALUES ('1', 'admin', '123456', '18363822396', '王梦', 'admin@sinomoses.com', 'admin', '', '0', NOW(), '', null, '', '',null,null);
